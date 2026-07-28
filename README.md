@@ -8,33 +8,58 @@ A Python application scaffold with a clean project structure, automated tooling,
 - pip (included with Python)
 - GNU Make (optional, for convenience commands)
 
-## Installation
+## Local Setup
 
-Clone the repository and install in development mode:
+Follow these steps to get a working development environment from scratch.
+
+### 1. Verify Python version
+
+This project requires **Python 3.11+**. Confirm your version:
+
+```bash
+python3 --version   # must be 3.11 or higher
+```
+
+### 2. Clone the repository
 
 ```bash
 git clone https://github.com/chrisliume/test05.git
 cd test05
+```
+
+### 3. Create and activate a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Linux / macOS
+# On Windows: .venv\Scripts\activate
+```
+
+### 4. Install dependencies
+
+With Make (recommended):
+
+```bash
 make install
 ```
 
-This installs the project in editable mode along with development dependencies (pytest, etc.).
-
-If you prefer not to use Make:
+Or manually:
 
 ```bash
 pip install -e ".[dev]"
 ```
 
-## Usage
+This installs the project in editable mode along with development dependencies (pytest, ruff, etc.).
 
-Run the application via the installed entry point:
+### 5. Run the application
+
+Via the installed entry point:
 
 ```bash
 test05
 ```
 
-Or run directly as a module:
+Or as a Python module:
 
 ```bash
 python -m src.main
@@ -42,21 +67,27 @@ python -m src.main
 make run
 ```
 
-## Testing
+### 6. Verify the setup
 
-Run the test suite:
+Run the test suite to confirm everything works:
 
 ```bash
 make test
-```
-
-Or invoke pytest directly:
-
-```bash
+# or
 pytest
 ```
 
-Tests live in the `tests/` directory and are discovered automatically by pytest.
+If all tests pass, your environment is ready for development.
+
+## Testing
+
+Tests live in the `tests/` directory and are discovered automatically by pytest:
+
+```bash
+make test
+# or
+pytest
+```
 
 ## Linting and Formatting
 
