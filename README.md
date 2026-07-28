@@ -81,13 +81,33 @@ If all tests pass, your environment is ready for development.
 
 ## Testing
 
-Tests live in the `tests/` directory and are discovered automatically by pytest:
+The project uses [pytest](https://docs.pytest.org/) (installed as part of the
+`dev` extras — see step 4 above). Tests live in the `tests/` directory and are
+discovered automatically.
+
+Run the full test suite via the Makefile target:
 
 ```bash
 make test
-# or
+```
+
+This is equivalent to invoking pytest directly:
+
+```bash
 pytest
 ```
+
+Useful pytest invocations:
+
+```bash
+pytest -v                    # verbose output, one line per test
+pytest tests/test_main.py    # run a single test file
+pytest -k test_name          # run tests matching a name pattern
+pytest -x                    # stop at the first failure
+```
+
+Run the tests before committing — the CI workflow also runs `pytest` on every
+push and pull request.
 
 ## Linting and Formatting
 
